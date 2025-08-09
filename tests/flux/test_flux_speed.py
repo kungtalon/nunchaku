@@ -6,6 +6,7 @@ import torch
 from diffusers import FluxPipeline
 
 from nunchaku import NunchakuFluxTransformer2dModel, NunchakuT5EncoderModel
+from nunchaku.caching.diffusers_adapters import apply_cache_on_pipe
 from nunchaku.utils import get_precision
 
 _LOGGER = logging.getLogger(__name__)
@@ -48,6 +49,12 @@ def test_flux_speed(
         pipeline_init_kwargs["text_encoder_2"] = text_encoder_2
     pipeline = FluxPipeline.from_pretrained(
         "black-forest-labs/FLUX.1-schnell", torch_dtype=torch.bfloat16, **pipeline_init_kwargs
+    )
+    apply_cache_on_pipe(
+        pipeline,
+        use_double_fb_cache=True,
+        residual_diff_threshold=0.12,
+        residual_diff_threshold_single=0.12,
     )
 
     pipeline = pipeline.to("cuda")
