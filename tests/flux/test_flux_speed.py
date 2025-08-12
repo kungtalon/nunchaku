@@ -14,7 +14,7 @@ _LOGGER = logging.getLogger(__name__)
 _EXPECTED_LATENCIES = {
     "NVIDIA GeForce RTX 3090": 16.05321,
     "NVIDIA GeForce RTX 4090": 6.49650,
-    "NVIDIA GeForce RTX 5090": 4.79388,
+    "NVIDIA GeForce RTX 5090": 2.70248,
 }
 
 
