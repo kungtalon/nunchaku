@@ -50,6 +50,7 @@ def test_flux_speed(
     pipeline = FluxPipeline.from_pretrained(
         "black-forest-labs/FLUX.1-schnell", torch_dtype=torch.bfloat16, **pipeline_init_kwargs
     )
+
     apply_cache_on_pipe(
         pipeline,
         use_double_fb_cache=True,
