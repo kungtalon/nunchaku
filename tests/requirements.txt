@@ -4,7 +4,7 @@ datasets<4
 torchmetrics
 mediapipe
 controlnet_aux
-peft
+peft>=0.17.0
 git+https://github.com/asomoza/image_gen_aux.git
 insightface
 opencv-python
