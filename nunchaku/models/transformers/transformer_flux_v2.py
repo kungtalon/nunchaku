@@ -26,7 +26,7 @@ from .utils import NunchakuModelLoaderMixin, pad_tensor
 
 
 class NunchakuFluxAttention(NunchakuBaseAttention):
-    def __init__(self, other: FluxAttention, processor: str = "flashattn2", **kwargs):
+    def __init__(self, other: FluxAttention, processor: str = "nunchaku-fp16", **kwargs):
         super(NunchakuFluxAttention, self).__init__(processor)
 
         self.head_dim = other.head_dim
